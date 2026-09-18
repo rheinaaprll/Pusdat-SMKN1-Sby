@@ -3,7 +3,6 @@
 @section('content')
 
 <style>
-    /* CETAK DOKUMEN RESMI */
     @media print {
         aside, header, #header-halaman, #tabel-utama, .bg-blue-50 { display: none !important; }
         body { background-color: white !important; }

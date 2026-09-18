@@ -30,9 +30,6 @@
     </nav>
 
     <main class="max-w-7xl mx-auto px-6 py-10">
-        <main class="max-w-7xl mx-auto px-6 py-10">
-        
-        {{-- TAMBAHKAN KODE ALERT INI DI SINI --}}
         @if(session('success'))
             <div class="bg-emerald-50 border border-emerald-100 text-emerald-700 px-5 py-4 mb-6 rounded-xl shadow-sm font-medium flex items-center justify-between transition-all">
                 <div class="flex items-center text-sm">
