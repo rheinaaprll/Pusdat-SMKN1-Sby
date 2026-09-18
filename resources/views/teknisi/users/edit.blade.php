@@ -91,16 +91,12 @@
         function aturTampilanForm() {
             if (roleSelect.value === 'siswa') {
                 label.innerText = 'Kelas';
-                rfidContainer.style.display = 'block'; // Munculkan kolom RFID
             } else {
                 label.innerText = 'Unit Kerja';
-                rfidContainer.style.display = 'none';  // Sembunyikan kolom RFID
             }
+            rfidContainer.style.display = 'block'; 
         }
-
-        // Jalankan saat pertama kali halaman dibuka
         aturTampilanForm();
-
         // Jalankan setiap kali Teknisi mengganti pilihan Role
         roleSelect.addEventListener('change', aturTampilanForm);
     });

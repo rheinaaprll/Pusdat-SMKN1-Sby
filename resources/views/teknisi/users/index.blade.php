@@ -211,6 +211,7 @@
                     <th class="p-5 font-bold">NIP</th>
                     <th class="p-5 font-bold">No. HP</th>
                     <th class="p-5 font-bold">Unit Kerja</th>
+                    <th class="p-5 font-bold text-center">Status RFID</th>
                     <th class="p-5 font-bold text-center">Aksi</th>
                 </tr>
             </thead>
@@ -221,6 +222,13 @@
                     <td class="p-5 text-slate-600 font-medium">{{ is_numeric($g->nisn_nip) ? $g->nisn_nip : '-' }}</td>
                     <td class="p-5 text-slate-600">{{ $g->no_hp ?? '-' }}</td>
                     <td class="p-5 text-slate-600"><span class="bg-slate-100 text-slate-700 py-1 px-3 rounded-lg text-xs font-bold">{{ $g->kelas_unit_kerja }}</span></td>
+                    <td class="p-5 text-center">
+                        @if($g->rfid)
+                            <span class="bg-emerald-100 text-emerald-700 py-1 px-3 rounded-lg text-xs font-bold"><i class="fas fa-check-circle mr-1"></i> Aktif</span>
+                        @else
+                            <span class="bg-rose-100 text-rose-700 py-1 px-3 rounded-lg text-xs font-bold"><i class="fas fa-times-circle mr-1"></i> Kosong</span>
+                        @endif
+                    </td>
                     <td class="p-5 text-center whitespace-nowrap relative">
                         <button onclick="toggleAksi('aksi-guru-{{ $g->id }}')" class="text-slate-400 hover:text-indigo-600 px-3 py-1 transition-colors outline-none">
                             <i class="fas fa-ellipsis-v text-lg"></i>
@@ -252,6 +260,7 @@
                     <th class="p-5 font-bold">NIP</th>
                     <th class="p-5 font-bold">No. HP</th>
                     <th class="p-5 font-bold">Unit Kerja</th>
+                    <th class="p-5 font-bold text-center">Status RFID</th>
                     <th class="p-5 font-bold text-center">Aksi</th>
                 </tr>
             </thead>
@@ -262,6 +271,13 @@
                     <td class="p-5 text-slate-600 font-medium">{{ is_numeric($t->nisn_nip) ? $t->nisn_nip : '-' }}</td>
                     <td class="p-5 text-slate-600">{{ $t->no_hp ?? '-' }}</td>
                     <td class="p-5 text-slate-600"><span class="bg-slate-100 text-slate-700 py-1 px-3 rounded-lg text-xs font-bold">{{ $t->kelas_unit_kerja }}</span></td>
+                    <td class="p-5 text-center">
+                        @if($t->rfid)
+                            <span class="bg-emerald-100 text-emerald-700 py-1 px-3 rounded-lg text-xs font-bold"><i class="fas fa-check-circle mr-1"></i> Aktif</span>
+                        @else
+                            <span class="bg-rose-100 text-rose-700 py-1 px-3 rounded-lg text-xs font-bold"><i class="fas fa-times-circle mr-1"></i> Kosong</span>
+                        @endif
+                    </td>
                     <td class="p-5 text-center whitespace-nowrap relative">
                         <button onclick="toggleAksi('aksi-tendik-{{ $t->id }}')" class="text-slate-400 hover:text-indigo-600 px-3 py-1 transition-colors outline-none">
                             <i class="fas fa-ellipsis-v text-lg"></i>
@@ -293,6 +309,7 @@
                     <th class="p-5 font-bold">NIP</th>
                     <th class="p-5 font-bold">No. HP</th>
                     <th class="p-5 font-bold">Jabatan</th>
+                    <th class="p-5 font-bold text-center">Status RFID</th>
                     <th class="p-5 font-bold text-center">Aksi</th>
                 </tr>
             </thead>
@@ -305,7 +322,14 @@
                     <td class="p-5 text-slate-600">
                         <span class="bg-indigo-100 text-indigo-700 py-1 px-3 rounded-lg text-xs font-bold uppercase">{{ $p->role }}</span>
                     </td>
-                   <td class="p-5 text-center whitespace-nowrap relative">
+                    <td class="p-5 text-center">
+                        @if($p->rfid)
+                            <span class="bg-emerald-100 text-emerald-700 py-1 px-3 rounded-lg text-xs font-bold"><i class="fas fa-check-circle mr-1"></i> Aktif</span>
+                        @else
+                            <span class="bg-rose-100 text-rose-700 py-1 px-3 rounded-lg text-xs font-bold"><i class="fas fa-times-circle mr-1"></i> Kosong</span>
+                        @endif
+                    </td>
+                    <td class="p-5 text-center whitespace-nowrap relative">
                         @if(auth()->user()->id != $p->id)
                             <button onclick="toggleAksi('aksi-pengelola-{{ $p->id }}')" class="text-slate-400 hover:text-indigo-600 px-3 py-1 transition-colors outline-none">
                                 <i class="fas fa-ellipsis-v text-lg"></i>

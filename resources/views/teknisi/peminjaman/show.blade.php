@@ -30,6 +30,26 @@
     </nav>
 
     <main class="max-w-7xl mx-auto px-6 py-10">
+        <main class="max-w-7xl mx-auto px-6 py-10">
+        
+        {{-- TAMBAHKAN KODE ALERT INI DI SINI --}}
+        @if(session('success'))
+            <div class="bg-emerald-50 border border-emerald-100 text-emerald-700 px-5 py-4 mb-6 rounded-xl shadow-sm font-medium flex items-center justify-between transition-all">
+                <div class="flex items-center text-sm">
+                    <i class="fas fa-check-circle mr-3 text-emerald-500 text-lg"></i> {{ session('success') }}
+                </div>
+                <button onclick="this.parentElement.style.display='none'" class="text-emerald-500 hover:text-emerald-700"><i class="fas fa-times"></i></button>
+            </div>
+        @endif
+
+        @if(session('error'))
+            <div class="bg-red-50 border border-red-200 text-red-600 px-5 py-4 mb-6 rounded-xl shadow-sm font-medium flex items-center justify-between transition-all">
+                <div class="flex items-center text-sm">
+                    <i class="fas fa-exclamation-circle mr-3 text-red-500 text-lg"></i> {{ session('error') }}
+                </div>
+                <button onclick="this.parentElement.style.display='none'" class="text-red-500 hover:text-red-700"><i class="fas fa-times"></i></button>
+            </div>
+        @endif
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             
             <div class="lg:col-span-2 space-y-8">
